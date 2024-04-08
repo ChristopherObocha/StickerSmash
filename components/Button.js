@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, Text, View, Pressable } from 'react-native'
-import FontAwesome from "@expo/vector-icons";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function Button({label, theme}) {
 
@@ -23,21 +23,32 @@ export default function Button({label, theme}) {
       alignItems: 'center',
       justifyContent: 'center',
       flexDirection: 'row',
-      backgroundColor: theme === 'primary' && '#fff',
+      backgroundColor: theme === 'primary' ? '#fff' : 'transparent',
     },
     buttonLabel: {
       color: theme === 'primary' ? '#25292e' : '#fff',
       fontSize: 16,
     },
+    buttonIcon: {
+      paddingRight: 8,
+    }
   });
 
 
   if(theme === "primary") {
-    <View style={[styles.buttonContainer, styles.additionalPrimaryStyles]}>
-      <Pressable style={styles.button} onPress={() => alert('You pressed a button.')}>
-        <Text style={styles.buttonLabel}>{label}</Text>
-      </Pressable>
-    </View>
+    return (
+      <View style={[styles.buttonContainer, styles.additionalPrimaryStyles]}>
+        <Pressable style={styles.button} onPress={() => alert('You pressed a button.')}>
+          <FontAwesome 
+            name="picture-o"
+            size={18}
+            color="#25292e"
+            style={styles.buttonIcon}
+          />
+          <Text style={styles.buttonLabel}>{label}</Text>
+        </Pressable>
+      </View>
+    );
   }
 
   return (
