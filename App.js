@@ -7,6 +7,14 @@ import * as MediaLibrary from 'expo-media-library';
 import { captureRef } from 'react-native-view-shot';
 import domtoimage from 'dom-to-image';
 
+//This will delay hiding the SplashScreen
+// npx expo install expo-splash-screen
+// import * as SplashScreen from 'expo-splash-screen';
+
+// SplashScreen.preventAutoHideAsync();
+// setTimeout(SplashScreen.hideAsync, 5000);
+
+
 
 import ImageViewer from './components/ImageViewer';
 import Button from './components/Button';
@@ -112,7 +120,7 @@ export default function App() {
         <EmojiList onSelect={setPickedEmoji} onCloseModal={onModalClose} />
       </EmojiPicker>
 
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </GestureHandlerRootView>
   );
 }
